@@ -22,6 +22,11 @@
 -->
 </div>
 
+## Supported providers
+| Status | City | URL | Docs |
+|:------:|------|------|:---:|
+| 🔃 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**]() |
+
 ## Features
 
 - 📱 **CORS**: query data in your cool webapp
