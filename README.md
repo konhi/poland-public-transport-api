@@ -22,6 +22,15 @@
 -->
 </div>
 
+## Features
+
+- 📱 **CORS**: query data in your cool webapp
+- 🔑 **No API Key**: rate limits only for preventing flooding
+- 💨 **Caching-friendly**: request only what's needed
+
+## Used by
+Does your project use this API? Feel free to add it there!
+
 ## Contact
 
 ### Maintainers
