@@ -1,4 +1,5 @@
 import errorHandler from "errorhandler";
+import { initializeApp } from 'firebase/app';
 import app from "./app";
 
 
@@ -9,6 +10,16 @@ if (process.env.NODE_ENV === "development") {
     app.use(errorHandler());
 }
 
+const firebaseConfig = {
+    apiKey: "AIzaSyC2mEA1YiWoq5FfSQDkCMKFaiiGmIX7NKw",
+    authDomain: "poland-public-transport.firebaseapp.com",
+    projectId: "poland-public-transport",
+    storageBucket: "poland-public-transport.appspot.com",
+    messagingSenderId: "798136532541",
+    appId: "1:798136532541:web:e2cfd635e18aa84c4ff454"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
 
 /**
  * Start Express server.

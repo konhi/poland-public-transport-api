@@ -5,6 +5,7 @@ import cors from "cors";
 
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
+import * as mzkZgoraPlController from "./controllers/mzkzgorapl"
 
 // Create Express server
 const app = express();
@@ -23,12 +24,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
  */
 app.get("/", homeController.index);
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+/**
+ * mzk.zgora.pl routes
+ */
+const PREFIX_MZKZGORAPL = "/mzkzgorapl/"
+
+app.get(`${PREFIX_MZKZGORAPL}stops`, mzkZgoraPlController.getStops)
+
 
 export default app;
