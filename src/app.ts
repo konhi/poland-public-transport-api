@@ -5,7 +5,7 @@ import cors from "cors";
 
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
-import * as mzkZgoraPlController from "./controllers/mzkzgorapl"
+import * as mzkZgoraPlController from "./controllers/mzkzgorapl";
 
 // Create Express server
 const app = express();
@@ -27,9 +27,16 @@ app.get("/", homeController.index);
 /**
  * mzk.zgora.pl routes
  */
-const PREFIX_MZKZGORAPL = "/mzkzgorapl/"
+const PREFIX_MZKZGORAPL = "/mzkzgorapl/";
 
-app.get(`${PREFIX_MZKZGORAPL}stops`, mzkZgoraPlController.getStops)
+app.get(`${PREFIX_MZKZGORAPL}stops`, mzkZgoraPlController.getStops);
+app.get(`${PREFIX_MZKZGORAPL}infos`, mzkZgoraPlController.getInfos);
+app.get(`${PREFIX_MZKZGORAPL}current_vehicles`, mzkZgoraPlController.getCurrentVehicles);
+app.get(`${PREFIX_MZKZGORAPL}stops/:id/departures`, mzkZgoraPlController.getStopDepartures);
+app.get(`${PREFIX_MZKZGORAPL}stops/:id/info`, mzkZgoraPlController.getStopInfo);
+
+
+
 
 
 export default app;

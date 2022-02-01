@@ -36,7 +36,8 @@
     "firebase-admin": "^9.8.0",
     "firebase-functions": "^3.14.1",
     "node-fetch": "^3.2.0",
-    "winston": "3.3.3"
+    "winston": "3.3.3",
+    "zod": "^3.11.6"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
