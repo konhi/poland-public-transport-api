@@ -1,5 +1,4 @@
 import errorHandler from "errorhandler";
-import { initializeApp } from "firebase/app";
 import app from "./app";
 
 
