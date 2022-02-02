@@ -23,7 +23,7 @@
 </div>
 
 ## Supported providers
-| Status | Version | City | URL | Docs |
+| Status | Version | City | Source | Docs |
 |:------:|----:|------|------|:---:|
 | ✅ | v0 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**]() |
 
