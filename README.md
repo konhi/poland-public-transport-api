@@ -23,9 +23,9 @@
 </div>
 
 ## Supported providers
-| Status | City | URL | Docs |
-|:------:|------|------|:---:|
-| 🔃 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**]() |
+| Status | Version | City | Source | Docs |
+|:------:|----:|------|------|:---:|
+| ✅ | v0 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**]() |
 
 ## Features
 
