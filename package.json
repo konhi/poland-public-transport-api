@@ -15,7 +15,7 @@
     "debug": "npm run build && npm run watch-debug",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
     "serve-debug": "nodemon --inspect dist/server.js",
-    "start": "npm run serve",
+    "start": "npm run build && node --experimental-specifier-resolution=node dist/server.js",
     "test": "jest --forceExit --coverage --verbose",
     "watch-node": "nodemon --experimental-specifier-resolution=node dist/server.js",
     "watch-test": "npm run test -- --watchAll",
