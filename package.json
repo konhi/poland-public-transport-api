@@ -24,6 +24,7 @@
     "docs": "npx apidoc -o src/public && node copyPublic.js"
   },
   "dependencies": {
+    "apicache": "^1.6.3",
     "body-parser": "1.19.0",
     "compression": "1.7.4",
     "cors": "^2.8.5",
@@ -31,10 +32,12 @@
     "errorhandler": "1.5.1",
     "express": "4.17.1",
     "node-fetch": "^3.2.0",
+    "node-fetch-cache": "^2.0.3",
     "winston": "3.3.3",
     "zod": "^3.11.6"
   },
   "devDependencies": {
+    "@types/apicache": "^1.6.1",
     "@types/compression": "^1.7.2",
     "@types/cors": "^2.8.12",
     "@types/errorhandler": "^1.5.0",
