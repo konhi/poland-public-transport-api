@@ -68,7 +68,7 @@ export const vehicleSchema =  z.object({
 
 export const stopDepartureSchema = z.object({
     // 00:00
-    time: z.string().min(1).length(5),
+    time: z.string().min(1),
     // 55
     line: z.string().min(1),
     // Tylko dla klientów Auchan
