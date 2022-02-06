@@ -14,5 +14,5 @@
       "*": ["node_modules/*", "src/types/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/public/doc/example.js", "dist/docs"]
 }

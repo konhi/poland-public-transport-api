@@ -1,0 +1,8 @@
+{
+  "name": "poland-public-transport-api",
+  "version": "1.0.0",
+  "description": "Friendly and simple, community-maintained REST API based on friendly public transport format.",
+  "url": "https://poland-public-transport-api.azurewebsites.net",
+  "output": "src/public/docs",
+  "input": "src"
+}
