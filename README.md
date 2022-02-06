@@ -7,31 +7,29 @@
 <h1 align="center">🚌 Poland's Public Transport API</h3>
 
   <p align="center">
-    Friendly and simple, community-maintained REST API based on <a href="https://github.com/public-transport/friendly-public-transport-format">friendly public transport format</a> which extends Google's <a href="https://developers.google.com/transit/gtfs/">GTFS</a>
-    <br />
-    <!--
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    Stable and simple, community-maintained REST API you can use in your project right away.
+    <br>
+    <br>
+    <a href="https://github.com/konhi/poland-public-transport-api#Contact">💬 Contact Us</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/konhi/poland-public-transport-api/issues">🐛 Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/konhi/poland-public-transport-api/issues">✨ Request Feature</a>
   </p>
--->
+     <h3> <a href="https://poland-public-transport-api.azurewebsites.net"><strong>Explore the docs »</strong></a></h2>
 </div>
 
-## Supported providers
+## Current Providers
 | Status | Version | City | Source | Docs |
 |:------:|----:|------|------|:---:|
-| ✅ | v0 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**](https://poland-public-transport-api.azurewebsites.net/#api-zielonagoramzk) |
+| ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**](https://poland-public-transport-api.azurewebsites.net/#api-zielonagoramzk) |
 
 ## Features
 
 - 📱 **CORS**: query data in your cool webapp
-- 🔑 **No API Key**: rate limits only for preventing flooding
-- 💨 **Caching-friendly**: request only what's needed
+- 🔑 **No API Key**: free & open-source forever
+- 💨 **Caching-friendly**: request only what's needed with `max-age` and `Etag`
+- 🛡 **Robust**: uses [Zod](https://github.com/colinhacks/zod/) to parse data and detect changes
 
 ## Used by
 Does your project use this API? Feel free to add it there!
