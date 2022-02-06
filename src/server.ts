@@ -1,5 +1,6 @@
 import errorHandler from "errorhandler";
-import app from "./app";
+import app from "./app"
+import logger from "./util/logger";
 
 
 /**
@@ -13,12 +14,8 @@ if (process.env.NODE_ENV === "development") {
  * Start Express server.
  */
 const server = app.listen(app.get("port"), () => {
-    console.log(
-        "  App is running at http://localhost:%d in %s mode",
-        app.get("port"),
-        app.get("env")
-    );
-    console.log("  Press CTRL-C to stop\n");
+    logger.info(`  App is running at http://localhost:${app.get("port")} in ${app.get("env")} mode`);
+    logger.info("  Press CTRL-C to stop\n");
 });
 
 export default server;
