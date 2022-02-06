@@ -21,7 +21,7 @@
     "watch-test": "npm run test -- --watchAll",
     "watch-ts": "tsc -w",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
-    "docs": "apidoc -o src/public && node copyPublic.js"
+    "docs": "npx apidoc -o src/public && node copyPublic.js"
   },
   "dependencies": {
     "body-parser": "1.19.0",
@@ -41,6 +41,7 @@
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "apidoc": "^0.50.4",
     "concurrently": "^7.0.0",
     "eslint": "7.19.0",
     "eslint-plugin-import": "^2.22.0",
