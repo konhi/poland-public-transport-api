@@ -25,7 +25,7 @@
 ## Supported providers
 | Status | Version | City | Source | Docs |
 |:------:|----:|------|------|:---:|
-| ✅ | v0 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**]() |
+| ✅ | v0 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**](https://poland-public-transport-api.azurewebsites.net/#api-zielonagoramzk) |
 
 ## Features
 
