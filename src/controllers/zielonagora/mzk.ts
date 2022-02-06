@@ -1,25 +1,15 @@
 import { Request, Response } from "express";
 import fetch from "node-fetch";
-import { AnyZodObject } from "zod";
-import * as mzkzgorapl from "../../models/zielonagora/mzkTypes";
+import * as zielonagoraMzkTypes from "../../models/zielonagora/mzkTypes";
+import {  ZodTypeAny } from "zod";
 
 /** mzk.zgora.pl's traveller provides few useful data without need for scraping */
 const BASE_URL = "https://traveller.mzk.zgora.pl/newvm/main";
 
-async function getJsonFromApiAndParse(url: string, schema: AnyZodObject): Promise<any> {
-   const json = await fetch(url)
-        .then(res => res.json());
-
-    if (Array.isArray(json)) {
-        for (const obj of json) {
-            schema.parse(obj);
-        }
-    }
-    else {
-        schema.parse(json);
-    }
-
-    return json;
+async function getAndParseJson(url: string, schema: ZodTypeAny) {
+   return fetch(url)
+      .then(body => body.json())
+      .then(json => schema.safeParse(json));
 }
 
 /**
@@ -27,7 +17,7 @@ async function getJsonFromApiAndParse(url: string, schema: AnyZodObject): Promis
  * @apiGroup zielonagora/mzk
  * @apiVersion 1.0.0
  * 
- * @apiQuery {Boolean} original Whether should return an original object or transformed (which tries to be consistent and easier to use) false=defaltValue
+
  * @apiSuccessExample {json} Success-Response: [
    {
       "type":"stop",
@@ -52,25 +42,26 @@ async function getJsonFromApiAndParse(url: string, schema: AnyZodObject): Promis
 ]
  */
 export async function getStops(req: Request, res: Response) {
-    const stops: mzkzgorapl.Stop[] = await getJsonFromApiAndParse(`${BASE_URL}?command=basicdata&action=mstops`, mzkzgorapl.stopSchema);
+   const url = `${BASE_URL}?command=basicdata&action=mstops`;
+   const schema = zielonagoraMzkTypes.stopListSchema;
 
+   const parsingResult = await getAndParseJson(url, schema);
+      if (parsingResult.success) {
+         const transformedStops = parsingResult.data.map((stop: zielonagoraMzkTypes.Stop) => ({
+               type: "stop",
+               id: stop.id,
+               name: stop.name,
+               location: {
+                     type: "location",
+                     longitude: stop.lon,
+                     latitude: stop.lat
+               }
+            }));
 
-    if (req.query.original) {
-        res.json(stops);
-    } else {
-        const formattedStops = stops.map(stop => ({
-            type: "stop",
-            id: stop.id,
-            name: stop.name,
-            location: {
-                type: "location",
-                longitude: stop.lon,
-                latitude: stop.lat
-            }
-        }));
-
-        res.json(formattedStops);
-    }
+         res.json(transformedStops);
+      } else {
+         res.status(500).json(parsingResult);
+      }
 }
 
 /**
@@ -98,9 +89,15 @@ export async function getStops(req: Request, res: Response) {
  */
 export async function getStopDepartures(req: Request, res: Response) {
     const url = `${BASE_URL}?command=fs&action=departures&stop=${req.params.id}`;
-    const stopDepartures: mzkzgorapl.StopDeparture[] = await getJsonFromApiAndParse(url, mzkzgorapl.stopDepartureSchema);
+    const schema = zielonagoraMzkTypes.stopDepartureListSchema;
 
-    res.json(stopDepartures);
+    const parsingResult = await getAndParseJson(url, schema);
+
+      if (parsingResult.success) {
+         res.json(parsingResult.data);
+      } else {
+         res.status(500).json(parsingResult);
+      }
 }
 
 /**
@@ -118,9 +115,15 @@ export async function getStopDepartures(req: Request, res: Response) {
  */
 export async function getStopInfo(req: Request, res: Response) {
     const url = `${BASE_URL}?command=fs&action=info&stop=${req.params.id}`;
-    const info: mzkzgorapl.Info = await getJsonFromApiAndParse(url, mzkzgorapl.stopInfoSchema);
+    const schema = zielonagoraMzkTypes.stopInfoSchema;
 
-    res.json(info);
+    const parsingResult = await getAndParseJson(url, schema);
+
+   if (parsingResult.success) {
+      res.json(parsingResult.data);
+   } else {
+      res.status(500).json(parsingResult);
+   }
 }
 
 /**
@@ -151,9 +154,15 @@ export async function getStopInfo(req: Request, res: Response) {
  */
 export async function getInfos(req: Request, res: Response) {
     const url = `${BASE_URL}?command=infos&format=json`;
-    const infos: mzkzgorapl.Info[] = await getJsonFromApiAndParse(url, mzkzgorapl.infoListItemSchema);
+    const schema = zielonagoraMzkTypes.infoListSchema;
 
-    res.json(infos);
+    const parsingResult = await getAndParseJson(url, schema);
+
+      if (parsingResult.success) {
+         res.json(parsingResult.data);
+      } else {
+         res.status(500).json(parsingResult);
+      }
 }
 
 
@@ -194,27 +203,29 @@ export async function getInfos(req: Request, res: Response) {
    }
 ]
  */
- export async function getCurrentVehicles(req: Request, res: Response) {
+export async function getCurrentVehicles(req: Request, res: Response) {
     const url = `${BASE_URL}?command=planner&action=v`;
-    const currentVehicles: mzkzgorapl.Vehicle[] = await getJsonFromApiAndParse(url, mzkzgorapl.vehicleSchema);
+    const schema = zielonagoraMzkTypes.vehicleListSchema;
 
-    if (req.query.original) {
-        res.json(currentVehicles);
-    } else {
-        const formattedVehicles = currentVehicles.map(vehicle => ({
-            type: "vehicle",
-            id: vehicle.id,
-            label: vehicle.label,
-            line_label: vehicle.lineLabel,
-            departure_id: vehicle.depid,
-            vehicle_group: vehicle.type,
-            location: {
-                type: "location",
-                longitude: vehicle.lon,
-                latitude: vehicle.lat
-            }
-        }));
+    const parsingResult = await getAndParseJson(url, schema);
 
-        res.json(formattedVehicles);
-    }
-}
+         if (parsingResult.success) {
+            const transformedVehicles = parsingResult.data.map((vehicle: zielonagoraMzkTypes.Vehicle) => ({
+               type: "vehicle",
+               id: vehicle.id,
+               label: vehicle.label,
+               line_label: vehicle.lineLabel,
+               departure_id: vehicle.depid,
+               vehicle_group: vehicle.type,
+               location: {
+                   type: "location",
+                   longitude: vehicle.lon,
+                   latitude: vehicle.lat
+               }
+            }));
+
+            res.json(transformedVehicles);
+         } else {
+            res.status(500).json(parsingResult);
+         }
+      }
