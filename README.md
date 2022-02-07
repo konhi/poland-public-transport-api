@@ -46,3 +46,5 @@ Does your project use this API? Feel free to add it there!
 ## License
 
 Distributed under the MIT License. See [`LICENSE.txt`](https://github.com/konhi/poland-public-transport-api/blob/main/LICENSE) for more information.
+
+Illustration by <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
