@@ -1,9 +1,5 @@
 <div align="center">
-<!--
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
--->
+    <img src="https://user-images.githubusercontent.com/61631665/152824247-9b81c74d-95c0-492c-a867-0af4341ee46b.png" alt="Logo">
 <h1 align="center">🚌 Poland's Public Transport API</h3>
 
   <p align="center">
@@ -18,6 +14,7 @@
   </p>
      <h3> <a href="https://poland-public-transport-api.azurewebsites.net"><strong>Explore the docs »</strong></a></h2>
 </div>
+
 
 ## Current Providers
 | Status | Version | City | Source | Docs |
