@@ -39,6 +39,13 @@ Does your project use this API? Feel free to add it there!
 ### Maintainers
 - [konhi](https://github.com/konhi) - **Jan Szymański**: [<hello.konhi@gmail.com>](mailto:hello.konhi@gmail.com) · [@konhi_](https://twitter.com/konhi_) · [konhi#1588](https://discord.com) (he/him)
 
+## Related
+- https://przyjazdy.pl/gtfs
+- https://github.com/public-transport
+  - https://transport.rest
+  - https://eu.data.public-transport.earth/
+- [Polish National Access Point Datasets](https://dane.gov.pl/pl/dataset/1739,krajowy-punkt-dostepowy-kpd-multimodalne-usugi-informacji-o-podrozach)
+
 ## License
 
 Distributed under the MIT License. See [`LICENSE.txt`](https://github.com/konhi/poland-public-transport-api/blob/main/LICENSE) for more information.
