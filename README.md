@@ -22,11 +22,9 @@
 | ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**](https://poland-public-transport-api.azurewebsites.net/#api-zielonagoramzk) |
 
 ## Features
-
-- 📱 **CORS**: query data in your cool webapp
-- 🔑 **No API Key**: free & open-source forever
-- 💨 **Caching-friendly**: request only what's needed with `max-age` and `Etag`
-- 🛡 **Robust**: uses [Zod](https://github.com/colinhacks/zod/) to parse data and detect changes
+<div align="center">
+<img alt="CORS: fetch data in your cool webapp. Free: no keys and ratelimits, open-source. Fast: max-age and ETag headers. Safe. validates data to check external servers’ updates" src="https://user-images.githubusercontent.com/61631665/152881791-b4bd340a-7d9d-4d2f-beaa-895b69d0d1b3.png"/>
+</div>
 
 ## Used by
 Does your project use this API? Feel free to add it there!
