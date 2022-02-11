@@ -11,9 +11,9 @@
   "type": "module",
   "scripts": {
     "build-ts": "tsc",
-    "build": "npm run build-ts && npm run lint",
+    "build": "npm run build-ts",
     "debug": "npm run build && npm run watch-debug",
-    "lint": "tsc --noEmit && ts-standard --fix",
+    "lint": "tsc --noEmit && ts-standard --fix --quiet",
     "serve-debug": "nodemon --inspect dist/server.js",
     "start": "node --experimental-specifier-resolution=node dist/server.js",
     "test": "jest --forceExit --coverage --verbose --passWithNoTests",
