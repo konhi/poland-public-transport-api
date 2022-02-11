@@ -16,11 +16,11 @@
     "serve-debug": "nodemon --inspect dist/server.js",
     "start": "node --experimental-specifier-resolution=node dist/server.js",
     "test": "jest --forceExit --coverage --verbose --passWithNoTests",
-    "watch-node": "nodemon --experimental-specifier-resolution=node dist/server.mjs",
+    "watch-node": "nodemon --experimental-specifier-resolution=node dist/server.ms",
     "watch-test": "npm run test -- --watchAll",
     "watch-ts": "tsc -w",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
-    "docs": "npx apidoc -o src/public && node copyPublic.js"
+    "docs": "npx apidoc -o src/public && node copyPublic.mjs"
   },
   "dependencies": {
     "apicache": "^1.6.3",
