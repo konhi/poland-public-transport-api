@@ -1,18 +1,18 @@
-import { Request, Response } from "express";
-import { z } from "zod";
-import * as stopTypes from "../../../types/zielonagora/mzk/stops";
-import { getAndParseJson } from "../../../utils/fetching";
-import { URLS } from "../../../utils/urls";
+import { Request, Response } from 'express'
+import { z } from 'zod'
+import * as stopTypes from '../../../types/zielonagora/mzk/stops'
+import { getAndParseJson } from '../../../utils/fetching'
+import { URLS } from '../../../utils/urls'
 
-function getStopUrl(id: string) {
-   return `https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=${id}`
+function getStopUrl (id: string): string {
+  return `https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=${id}`
 }
 
 /**
  * @api {get} /v1/zielonagora/mzk/stops getStops
  * @apiGroup zielonagora/mzk
  * @apiVersion 1.0.0
- * 
+ *
 
  * @apiSuccessExample {json} Success-Response: [
    {
@@ -31,38 +31,38 @@ function getStopUrl(id: string) {
    }
 ]
  */
-export async function getStops(req: Request, res: Response) {
-  const url = `${URLS.zielonagora.mzk.baseUrl}?command=basicdata&action=mstops`;
-  const schema = z.array(stopTypes.stopSchema);
+export async function getStops (req: Request, res: Response) {
+  const url = `${URLS.zielonagora.mzk.baseUrl}?command=basicdata&action=mstops`
+  const schema = z.array(stopTypes.stopSchema)
 
-  const parsingResult = await getAndParseJson(url, schema);
-     if (parsingResult.success) {
-        const transformedStops = parsingResult.data.map((stop: stopTypes.Stop) => ({
-               type: "stop",
-              id: stop.id,
-              name: stop.name,
-              position: {
-                 type: "position",
-               latitude: stop.lat,
-               longitude: stop.lon,
-              },
-              url: getStopUrl(stop.id)
-           }));
+  const parsingResult = await getAndParseJson(url, schema)
+  if (parsingResult.success) {
+    const transformedStops = parsingResult.data.map((stop: stopTypes.Stop) => ({
+      type: 'stop',
+      id: stop.id,
+      name: stop.name,
+      position: {
+        type: 'position',
+        latitude: stop.lat,
+        longitude: stop.lon
+      },
+      url: getStopUrl(stop.id)
+    }))
 
-        res.json(transformedStops);
-     } else {
-        res.status(500).json(parsingResult);
-     }
+    res.json(transformedStops)
+  } else {
+    res.status(500).json(parsingResult)
+  }
 }
 
 /**
 * @api {get} /v1/zielonagora/mzk/stops/:id/departures getStopDepartures
-* 
+*
 * @apiParam {Number} id Id of Stop, you can get it from getStops
 
 * @apiGroup zielonagora/mzk
 * @apiVersion 1.0.0
-* 
+*
 * @apiSuccessExample {json} Success-Response: [
   {
     "type": "departure",
@@ -88,57 +88,56 @@ export async function getStops(req: Request, res: Response) {
   },
 ]
 */
-export async function getStopDepartures(req: Request, res: Response) {
-   const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=departures&stop=${req.params.id}`;
-   const schema = z.array(stopTypes.stopDepartureSchema);
+export async function getStopDepartures (req: Request, res: Response) {
+  const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=departures&stop=${req.params.id}`
+  const schema = z.array(stopTypes.stopDepartureSchema)
 
-   const parsingResult = await getAndParseJson(url, schema);
+  const parsingResult = await getAndParseJson(url, schema)
 
-     if (parsingResult.success) {
-        const transformedResult = parsingResult.data.map((departure: stopTypes.StopDeparture) => ({
-         type: "departure",
-         arrival_time: departure.time,
-         line_id: departure.line,
-         direction_name: departure.destination,
-         stop: {
-            type: "stop",
-            id: req.params.id,
-            name: departure.stop,
-         }
-      }));
+  if (parsingResult.success) {
+    const transformedResult = parsingResult.data.map((departure: stopTypes.StopDeparture) => ({
+      type: 'departure',
+      arrival_time: departure.time,
+      line_id: departure.line,
+      direction_name: departure.destination,
+      stop: {
+        type: 'stop',
+        id: req.params.id,
+        name: departure.stop
+      }
+    }))
 
-      res.json(transformedResult)
-
-     } else {
-        res.status(500).json(parsingResult);
-     }
+    res.json(transformedResult)
+  } else {
+    res.status(500).json(parsingResult)
+  }
 }
 
 /**
 * @api {get} /v1/zielonagora/mzk/stops/:id/info getStopInfo
 * @apiGroup zielonagora/mzk
-* 
+*
 * @apiParam {Number} id Id of Stop, you can get it from getStops
-* 
+*
 * @apiVersion 1.0.0
-* 
+*
 * @apiSuccessExample {json} Success-Response: {
   "id": -90797766,
   "text": "&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;UWAGA! W DNI ROBOCZE OBOWIĄZUJE ROZKŁAD NIEBIESKI&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;INFO: Od 17.01. do 18.02. autobusy kursują wg rozkładu jazdy oznaczonego na tabliczkach przystankowych jako \"Poniedziałek - piątek\r\nW FERIE I WAKACJE\" - niebieska kolumna w rozkładzie jazdy.",
   "type": "info"
 }
 */
-export async function getStopInfo(req: Request, res: Response) {
-   const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=info&stop=${req.params.id}`;
-   const schema = stopTypes.stopInfoSchema;
+export async function getStopInfo (req: Request, res: Response) {
+  const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=info&stop=${req.params.id}`
+  const schema = stopTypes.stopInfoSchema
 
-   const parsingResult = await getAndParseJson(url, schema);
+  const parsingResult = await getAndParseJson(url, schema)
 
   if (parsingResult.success) {
-   const transformedResult = {...parsingResult.data, ...{type: "info"}}
+    const transformedResult = { ...parsingResult.data, ...{ type: 'info' } }
 
-   res.json(transformedResult)
+    res.json(transformedResult)
   } else {
-     res.status(500).json(parsingResult);
+    res.status(500).json(parsingResult)
   }
 }
