@@ -18,7 +18,4 @@ export const vehicleSchema = z.object({
   // "Autobusy Elektryczne"
   type: z.string(),
 });
-export const vehicleListSchema = z.array(vehicleSchema);
-
 export type Vehicle = z.infer<typeof vehicleSchema>
-export type VehicleList = z.infer<typeof vehicleListSchema>

@@ -33,9 +33,10 @@ function getStopUrl (id: string): string {
  */
 export async function getStops (req: Request, res: Response) {
   const url = `${URLS.zielonagora.mzk.baseUrl}?command=basicdata&action=mstops`
-  const schema = z.array(stopTypes.stopSchema)
+  const schema = z.array(stopTypes.stopSchema).nonempty()
 
   const parsingResult = await getAndParseJson(url, schema)
+
   if (parsingResult.success) {
     const transformedStops = parsingResult.data.map((stop: stopTypes.Stop) => ({
       type: 'stop',
@@ -90,7 +91,7 @@ export async function getStops (req: Request, res: Response) {
 */
 export async function getStopDepartures (req: Request, res: Response) {
   const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=departures&stop=${req.params.id}`
-  const schema = z.array(stopTypes.stopDepartureSchema)
+  const schema = z.array(stopTypes.stopDepartureSchema).nonempty()
 
   const parsingResult = await getAndParseJson(url, schema)
 

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 // ?command=infos and ?command=fs&action=info& return different objects, it's the reason for separate types
-export const infoListSchema = z.array(z.object({
+export const infoSchema = z.object({
   // 	"1083" (getInfos)
   id: z.string().min(1),
   // 	"UWAGA! W DNI ROBOCZE OBOWIĄZUJE ROZKŁAD NIEBIESKI"
@@ -14,6 +14,6 @@ export const infoListSchema = z.array(z.object({
   start_time: z.number(),
   // 0
   end_time: z.number(),
-}));
+});
 
-export type InfoListItem = z.infer<typeof infoListSchema>
+export type Info = z.infer<typeof infoSchema>

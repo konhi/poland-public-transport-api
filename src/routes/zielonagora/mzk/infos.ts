@@ -2,6 +2,7 @@ import * as infosTypes from '../../../types/zielonagora/mzk/infos'
 import { Request, Response } from 'express'
 import { URLS } from '../../../utils/urls'
 import { getAndParseJson } from '../../../utils/fetching'
+import { z } from 'zod'
 
 /**
  * @api {get} /v1/zielonagora/mzk/infos getInfos
@@ -31,7 +32,7 @@ import { getAndParseJson } from '../../../utils/fetching'
  */
 export async function getInfos (req: Request, res: Response) {
   const url = `${URLS.zielonagora.mzk.baseUrl}?command=infos&format=json`
-  const schema = infosTypes.infoListSchema
+  const schema = z.array(infosTypes.infoSchema).nonempty()
 
   const parsingResult = await getAndParseJson(url, schema)
 

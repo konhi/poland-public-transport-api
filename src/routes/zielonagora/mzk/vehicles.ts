@@ -2,10 +2,11 @@ import { URLS } from '../../../utils/urls'
 import { getAndParseJson } from '../../../utils/fetching'
 import { Request, Response } from 'express'
 import * as realtimeVehiclesTypes from '../../../types/zielonagora/mzk/vehicles'
+import { z } from 'zod'
 
 export async function getCurrentVehicles (req: Request, res: Response) {
   const url = `${URLS.zielonagora.mzk.baseUrl}?command=planner&action=v`
-  const schema = realtimeVehiclesTypes.vehicleListSchema
+  const schema = z.array(realtimeVehiclesTypes.vehicleSchema).nonempty()
 
   const parsingResult = await getAndParseJson(url, schema)
 

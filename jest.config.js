@@ -1,9 +1,11 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 
-export default {
-  preset: 'ts-jest',
+module.exports = {
+  extensionsToTreatAsEsm: ['.ts'],
+  preset: 'ts-jest/presets/default-esm',
   globals: {
     'ts-jest': {
+      useESM: true,
       tsconfig: 'tsconfig.json'
     }
   },
@@ -17,5 +19,8 @@ export default {
   testMatch: [
     '**/test/**/*.test.(ts|js)'
   ],
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  }
 }

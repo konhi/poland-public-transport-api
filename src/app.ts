@@ -2,7 +2,6 @@ import express from 'express'
 import compression from 'compression'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import { fileURLToPath } from 'url'
 import path from 'path'
 import apicache from 'apicache'
 
@@ -15,7 +14,7 @@ import * as zielonagoraMzkInfos from './routes/zielonagora/mzk/infos'
 const app = express()
 
 // Express configuration
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT ?? 3000)
 app.use(compression())
 app.use(cors({ origin: '*' }))
 app.use(bodyParser.json())
@@ -24,9 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // Server-side cache
 const cache = apicache.middleware
 
-// Static files
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+// // Static files
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
