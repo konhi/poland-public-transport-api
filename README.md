@@ -1,5 +1,11 @@
 <div align="center">
+<a href="https://poland-public-transport-api.azurewebsites.net/">
     <img src="https://user-images.githubusercontent.com/61631665/152824247-9b81c74d-95c0-492c-a867-0af4341ee46b.png" alt="Logo">
+</a>
+<br>
+ <a href="https://github.com/konhi/poland-public-transport-api/actions/workflows/main_poland-public-transport-api.yml">
+   <img src="https://github.com/konhi/poland-public-transport-api/actions/workflows/main_poland-public-transport-api.yml/badge.svg" alt="Deploy Status">
+</a>
 <h1 align="center">🚌 Poland's Public Transport API</h3>
 
   <p align="center">
