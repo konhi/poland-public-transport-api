@@ -1,7 +1,12 @@
 import { Request, Response } from "express";
+import { z } from "zod";
 import * as stopTypes from "../../../types/zielonagora/mzk/stops";
 import { getAndParseJson } from "../../../utils/fetching";
 import { URLS } from "../../../utils/urls";
+
+function getStopUrl(id: string) {
+   return `https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=${id}`
+}
 
 /**
  * @api {get} /v1/zielonagora/mzk/stops getStops
@@ -11,42 +16,37 @@ import { URLS } from "../../../utils/urls";
 
  * @apiSuccessExample {json} Success-Response: [
    {
-      "type":"stop",
-      "id":"75",
-      "name":"1 Maja",
-      "location":{
-         "type":"location",
-         "longitude":15.4960388888889,
-         "latitude":51.9358916666667
-      }
+      "stop_id":"75",
+      "stop_name":"1 Maja",
+      "stop_lat":51.9358916666667,
+      "stop_lon":15.4960388888889,
+      "stop_url": "https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=75"
    },
    {
-      "type":"stop",
-      "id":"219",
-      "name":"1 Maja",
-      "location":{
-         "type":"location",
-         "longitude":15.496792023807373,
-         "latitude":51.93532294108886
-      }
+      "stop_id":"219",
+      "stop_name":"1 Maja",
+      "stop_lat":15.496792023807373,
+      "stop_lon":51.93532294108886,
+      "stop_url: "https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=219",
    }
 ]
  */
 export async function getStops(req: Request, res: Response) {
   const url = `${URLS.zielonagora.mzk.baseUrl}?command=basicdata&action=mstops`;
-  const schema = stopTypes.stopListSchema;
+  const schema = z.array(stopTypes.stopSchema);
 
   const parsingResult = await getAndParseJson(url, schema);
      if (parsingResult.success) {
         const transformedStops = parsingResult.data.map((stop: stopTypes.Stop) => ({
-              type: "stop",
+               type: "stop",
               id: stop.id,
               name: stop.name,
-              location: {
-                    type: "location",
-                    longitude: stop.lon,
-                    latitude: stop.lat
-              }
+              position: {
+                 type: "position",
+               latitude: stop.lat,
+               longitude: stop.lon,
+              },
+              url: getStopUrl(stop.id)
            }));
 
         res.json(transformedStops);
@@ -65,27 +65,50 @@ export async function getStops(req: Request, res: Response) {
 * 
 * @apiSuccessExample {json} Success-Response: [
   {
-     "time":"05:17",
-     "line":"27",
-     "destination":"Dworzec Główny",
-     "stop":"1 Maja"
+    "type": "departure",
+    "arrival_time": "13 min",
+    "line_id": "14",
+    "direction_name": "Zawadzkiego Zośki",
+    "stop": {
+      "type": "stop",
+      "id": "75",
+      "name": "1 Maja"
+    }
   },
   {
-     "time":"05:26",
-     "line":"44",
-     "destination":"Dworzec Główny",
-     "stop":"1 Maja"
+    "type": "departure",
+    "arrival_time": "14 min",
+    "line_id": "27",
+    "direction_name": "Dworzec Główny",
+    "stop": {
+      "type": "stop",
+      "id": "75",
+      "name": "1 Maja"
+    }
   },
 ]
 */
 export async function getStopDepartures(req: Request, res: Response) {
    const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=departures&stop=${req.params.id}`;
-   const schema = stopTypes.stopDepartureListSchema;
+   const schema = z.array(stopTypes.stopDepartureSchema);
 
    const parsingResult = await getAndParseJson(url, schema);
 
      if (parsingResult.success) {
-        res.json(parsingResult.data);
+        const transformedResult = parsingResult.data.map((departure: stopTypes.StopDeparture) => ({
+         type: "departure",
+         arrival_time: departure.time,
+         line_id: departure.line,
+         direction_name: departure.destination,
+         stop: {
+            type: "stop",
+            id: req.params.id,
+            name: departure.stop,
+         }
+      }));
+
+      res.json(transformedResult)
+
      } else {
         res.status(500).json(parsingResult);
      }
@@ -100,8 +123,9 @@ export async function getStopDepartures(req: Request, res: Response) {
 * @apiVersion 1.0.0
 * 
 * @apiSuccessExample {json} Success-Response: {
-  "id":-1162435876,
-  "text":"&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;UWAGA! W DNI ROBOCZE OBOWIĄZUJE ROZKŁAD NIEBIESKI&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;INFO: Od 17.01. do 27.02. autobusy kursują wg rozkładu jazdy oznaczonego na tabliczkach przystankowych jako \"Poniedziałek - piątek\r\nW FERIE I WAKACJE\" - niebieska kolumna w rozkładzie jazdy."
+  "id": -90797766,
+  "text": "&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;UWAGA! W DNI ROBOCZE OBOWIĄZUJE ROZKŁAD NIEBIESKI&nbsp;&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp;INFO: Od 17.01. do 18.02. autobusy kursują wg rozkładu jazdy oznaczonego na tabliczkach przystankowych jako \"Poniedziałek - piątek\r\nW FERIE I WAKACJE\" - niebieska kolumna w rozkładzie jazdy.",
+  "type": "info"
 }
 */
 export async function getStopInfo(req: Request, res: Response) {
@@ -111,7 +135,9 @@ export async function getStopInfo(req: Request, res: Response) {
    const parsingResult = await getAndParseJson(url, schema);
 
   if (parsingResult.success) {
-     res.json(parsingResult.data);
+   const transformedResult = {...parsingResult.data, ...{type: "info"}}
+
+   res.json(transformedResult)
   } else {
      res.status(500).json(parsingResult);
   }

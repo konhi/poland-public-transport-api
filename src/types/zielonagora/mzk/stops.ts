@@ -14,10 +14,7 @@ export const stopSchema = z.object({
   // on	15.4960388888889
   lon: z.number(),
 });
-export const stopListSchema = z.array(stopSchema);
-
 export type Stop = z.infer<typeof stopSchema>
-export type StopList = z.infer<typeof stopListSchema>
 
 export const stopInfoSchema = z.object({
   // -1162435876
@@ -28,7 +25,7 @@ export const stopInfoSchema = z.object({
 
 export type Info = z.infer<typeof stopInfoSchema>
 
-export const stopDepartureListSchema = z.array(z.object({
+export const stopDepartureSchema = z.object({
   // 00:00
   time: z.string().min(1),
   // 55
@@ -37,6 +34,6 @@ export const stopDepartureListSchema = z.array(z.object({
   destination: z.string().min(1),
   // Dekoracyjna
   stop: z.string().min(1),
-}));
+});
 
-export type StopDepartureList = z.infer<typeof stopDepartureListSchema>
+export type StopDeparture = z.infer<typeof stopDepartureSchema>

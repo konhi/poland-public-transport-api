@@ -17,8 +17,8 @@ export async function getCurrentVehicles(req: Request, res: Response) {
              line_label: vehicle.lineLabel,
              departure_id: vehicle.depid,
              vehicle_group: vehicle.type,
-             location: {
-                 type: "location",
+             position: {
+                  type: "position",
                  longitude: vehicle.lon,
                  latitude: vehicle.lat
              }
