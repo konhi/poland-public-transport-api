@@ -23,5 +23,5 @@
   "typescript.referencesCodeLens.enabled": true,
   "appService.zipIgnorePattern": [".vscode{,/**}"],
   "appService.deploySubpath": "",
-  "conventionalCommits.scopes": ["mzkzgorapl"]
+  "conventionalCommits.scopes": ["zielonagora"]
 }
