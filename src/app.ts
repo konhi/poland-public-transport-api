@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
 import routerV1 from "./routes/v1";
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './public/v1/openapi.json';
 
 // Create Express server
 const app = express();
@@ -20,5 +22,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/v1", routerV1)
+
+// Docs
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 export default app;
