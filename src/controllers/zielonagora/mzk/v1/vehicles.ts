@@ -14,17 +14,22 @@ export async function getCurrentVehicles(req: Request, res: Response) {
   if (parsingResult.success) {
     const transformedVehicles = parsingResult.data.map(
       (vehicle: realtimeVehiclesTypes.Vehicle) => ({
-        type: "vehicle",
+        vehicle: {
         id: vehicle.id,
         label: vehicle.label,
-        line_label: vehicle.lineLabel,
-        departure_id: vehicle.depid,
-        vehicle_group: vehicle.type,
-        position: {
-          type: "position",
+        line: {
+          label: vehicle.lineLabel
+        },
+        departure: {
+          id: vehicle.depid,
+        },
+        group: vehicle.type,
+        location: {
           longitude: vehicle.lon,
           latitude: vehicle.lat,
         },
+        }
+
       })
     );
 

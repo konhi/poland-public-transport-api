@@ -1,0 +1,332 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Poland Public Transport API",
+    "description": "Stable and simple, community-maintained REST API you can use in your project right away.",
+    "contact": {
+      "name": "Jan Szymański (konhi)",
+      "url": "https://github.com/konhi",
+      "email": "hello.konhi@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/konhi/poland-public-transport-api/blob/main/LICENSE"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "//poland-public-transport-api.azurewebsites.net/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Zielona Góra"
+    }
+  ],
+  "paths": {
+    "/v1/zielonagora/mzk/stops": {
+      "get": {
+        "tags": [
+          "zielonagora"
+        ],
+        "summary": "Show bus stops.",
+        "responses": {
+          "200": {
+            "description": "Return array of bus stops",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "stop": {
+                        "$ref": "#/components/schemas/Stop"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/zielonagora/mzk/stops/{stopId}/departures": {
+      "get": {
+        "tags": [
+          "zielonagora"
+        ],
+        "summary": "Get Bus departures",
+        "parameters": [
+          {
+            "name": "stopId",
+            "in": "path",
+            "description": "id of a stop, you can get it frm other endpoints",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of bus departures.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Departure"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/zielonagora/mzk/stops/{stopId}/infos": {
+      "get": {
+        "tags": [
+          "zielonagora"
+        ],
+        "summary": "Get Stop infos",
+        "parameters": [
+          {
+            "name": "stopId",
+            "in": "path",
+            "description": "id of a stop, you can get it frm other endpoints",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Info of stop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "info": {
+                      "$ref": "#/components/schemas/Info"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/zielonagora/mzk/infos": {
+      "get": {
+        "tags": [
+          "zielonagora"
+        ],
+        "summary": "Get infos",
+        "responses": {
+          "200": {
+            "description": "Info of stop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "info": {
+                        "$ref": "#/components/schemas/Info"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/zielonagora/mzk/current_vehicles": {
+      "get": {
+        "tags": [
+          "zielonagora"
+        ],
+        "summary": "Get realtime vehicles",
+        "responses": {
+          "200": {
+            "description": "Info of stop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "info": {
+                        "$ref": "#/components/schemas/Vehicle"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Stop": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "75"
+          },
+          "name": {
+            "type": "string",
+            "example": "1 Maja"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "url": {
+            "type": "string",
+            "format": "url",
+            "example": "https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=75"
+          }
+        }
+      },
+      "Info": {
+        "required": [
+          "id",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1083"
+          },
+          "text": {
+            "type": "string",
+            "example": "UWAGA! W DNI ROBOCZE OBOWIĄZUJE ROZKŁAD NIEBIESKI"
+          },
+          "stops": {
+            "$ref": "#/components/schemas/Stop"
+          },
+          "validity_start": {
+            "type": "integer",
+            "example": 1642388400000
+          },
+          "validity_end": {
+            "type": "integer",
+            "example": 1646001300000
+          },
+          "start_time": {
+            "type": "integer",
+            "example": 0
+          },
+          "end_time": {
+            "type": "integer",
+            "example": 0
+          }
+        }
+      },
+      "Departure": {
+        "required": [
+          "arrival",
+          "direction",
+          "line"
+        ],
+        "type": "object",
+        "properties": {
+          "line": {
+            "$ref": "#/components/schemas/Line"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Stop"
+          },
+          "arrival": {
+            "$ref": "#/components/schemas/Arrival"
+          },
+          "stop": {
+            "$ref": "#/components/schemas/Stop"
+          },
+          "id": {
+            "type": "string",
+            "example": "285784898"
+          }
+        }
+      },
+      "Location": {
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "integer"
+          },
+          "longitude": {
+            "type": "integer"
+          }
+        }
+      },
+      "Line": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "example": "5"
+          }
+        }
+      },
+      "Arrival": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "example": "3 minuty"
+          }
+        }
+      },
+      "Vehicle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "318"
+          },
+          "label": {
+            "type": "string",
+            "example": "44"
+          },
+          "line": {
+            "$ref": "#/components/schemas/Line"
+          },
+          "departure": {
+            "$ref": "#/components/schemas/Departure"
+          },
+          "group": {
+            "type": "string",
+            "example": "Autobusy-AED"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          }
+        }
+      }
+    }
+  }
+}

@@ -27,7 +27,7 @@ routerV1.get(
   zielonagoraMzkStops.getStopDepartures
 );
 routerV1.get(
-  `${PREFIX_ZIELONAGORA_MZK}stops/:id/info`,
+  `${PREFIX_ZIELONAGORA_MZK}stops/:id/infos`,
   cache("1 minute"),
   zielonagoraMzkStops.getStopInfo
 );
