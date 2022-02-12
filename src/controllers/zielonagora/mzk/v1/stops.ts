@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { z } from "zod";
 import * as stopTypes from "../../../../types/zielonagora/mzk/v1/stops";
 import { getJson } from "../../../../utils/fetching";
-import { URLS } from "../../../../utils/urls";
+import { URLS } from "../../../../constants/urls";
 
 function getStopUrl(id: string): string {
   return `https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=${id}`;

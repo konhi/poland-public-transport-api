@@ -1,6 +1,6 @@
 import * as infosTypes from "../../../../types/zielonagora/mzk/v1/infos";
 import { Request, Response } from "express";
-import { URLS } from "../../../../utils/urls";
+import { URLS } from "../../../../constants/urls";
 import { getJson } from "../../../../utils/fetching";
 import { z } from "zod";
 
