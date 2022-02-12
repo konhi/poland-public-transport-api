@@ -7,13 +7,13 @@ export const infoSchema = z.object({
   // 	"UWAGA! W DNI ROBOCZE OBOWIĄZUJE ROZKŁAD NIEBIESKI"
   text: z.string().min(1),
   // 	1642388400000
-  validity_start: z.number(),
+  validity_start: z.number().optional(),
   // 	1646001300000
-  validity_end: z.number(),
+  validity_end: z.number().optional(),
   // 0
-  start_time: z.number(),
+  start_time: z.number().optional(),
   // 0
-  end_time: z.number(),
+  end_time: z.number().optional(),
 });
 
-export type Info = z.infer<typeof infoSchema>
+export type Info = z.infer<typeof infoSchema>;
