@@ -14,16 +14,16 @@ export const stopSchema = z.object({
   // on	15.4960388888889
   lon: z.number(),
 });
-export type Stop = z.infer<typeof stopSchema>
+export type Stop = z.infer<typeof stopSchema>;
 
 export const stopInfoSchema = z.object({
   // -1162435876
   id: z.number(),
   // :"\u0026nbsp;\u0026nbsp;\u0026nbsp;***\u0026nbsp;\u0026nbsp;\u0026nbsp;UWAGA! W DNI ROBOCZE OBOWIĄZUJE ROZKŁAD NIEBIESKI\u0026nbsp;\u0026nbsp;\u0026nbsp;***\u0026nbsp;\u0026nbsp;\u0026nbsp;INFO: Od 17.01. do 27.02. autobusy kursują wg rozkładu jazdy oznaczonego na tabliczkach przystankowych jako \"Poniedziałek - piątek\r\nW FERIE I WAKACJE\" - niebieska kolumna w rozkładzie jazdy.
-  text: z.string().min(1)
+  text: z.string().min(1),
 });
 
-export type Info = z.infer<typeof stopInfoSchema>
+export type Info = z.infer<typeof stopInfoSchema>;
 
 export const stopDepartureSchema = z.object({
   // 00:00
@@ -36,4 +36,4 @@ export const stopDepartureSchema = z.object({
   stop: z.string().min(1),
 });
 
-export type StopDeparture = z.infer<typeof stopDepartureSchema>
+export type StopDeparture = z.infer<typeof stopDepartureSchema>;

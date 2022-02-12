@@ -16,4 +16,4 @@ export const infoSchema = z.object({
   end_time: z.number(),
 });
 
-export type Info = z.infer<typeof infoSchema>
+export type Info = z.infer<typeof infoSchema>;

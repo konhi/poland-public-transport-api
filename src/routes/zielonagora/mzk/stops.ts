@@ -1,11 +1,11 @@
-import { Request, Response } from 'express'
-import { z } from 'zod'
-import * as stopTypes from '../../../types/zielonagora/mzk/stops'
-import { getAndParseJson } from '../../../utils/fetching'
-import { URLS } from '../../../utils/urls'
+import { Request, Response } from "express";
+import { z } from "zod";
+import * as stopTypes from "../../../types/zielonagora/mzk/stops";
+import { getJson } from "../../../utils/fetching";
+import { URLS } from "../../../utils/urls";
 
-function getStopUrl (id: string): string {
-  return `https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=${id}`
+function getStopUrl(id: string): string {
+  return `https://rozklad.mzk.zgora.pl/rozklad.php?co=trasa&linia=${id}`;
 }
 
 /**
@@ -31,28 +31,29 @@ function getStopUrl (id: string): string {
    }
 ]
  */
-export async function getStops (req: Request, res: Response) {
-  const url = `${URLS.zielonagora.mzk.baseUrl}?command=basicdata&action=mstops`
-  const schema = z.array(stopTypes.stopSchema).nonempty()
+export async function getStops(req: Request, res: Response) {
+  const url = `${URLS.zielonagora.mzk.baseUrl}?command=basicdata&action=mstops`;
+  const schema = z.array(stopTypes.stopSchema).nonempty();
 
-  const parsingResult = await getAndParseJson(url, schema)
+  const json = await getJson(url);
+  const parsingResult = schema.safeParse(json);
 
   if (parsingResult.success) {
     const transformedStops = parsingResult.data.map((stop: stopTypes.Stop) => ({
-      type: 'stop',
+      type: "stop",
       id: stop.id,
       name: stop.name,
       position: {
-        type: 'position',
+        type: "position",
         latitude: stop.lat,
-        longitude: stop.lon
+        longitude: stop.lon,
       },
-      url: getStopUrl(stop.id)
-    }))
+      url: getStopUrl(stop.id),
+    }));
 
-    res.json(transformedStops)
+    res.json(transformedStops);
   } else {
-    res.status(500).json(parsingResult)
+    res.status(500).json(parsingResult);
   }
 }
 
@@ -89,28 +90,31 @@ export async function getStops (req: Request, res: Response) {
   },
 ]
 */
-export async function getStopDepartures (req: Request, res: Response) {
-  const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=departures&stop=${req.params.id}`
-  const schema = z.array(stopTypes.stopDepartureSchema).nonempty()
+export async function getStopDepartures(req: Request, res: Response) {
+  const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=departures&stop=${req.params.id}`;
+  const schema = z.array(stopTypes.stopDepartureSchema).nonempty();
 
-  const parsingResult = await getAndParseJson(url, schema)
+  const json = await getJson(url);
+  const parsingResult = schema.safeParse(json);
 
   if (parsingResult.success) {
-    const transformedResult = parsingResult.data.map((departure: stopTypes.StopDeparture) => ({
-      type: 'departure',
-      arrival_time: departure.time,
-      line_id: departure.line,
-      direction_name: departure.destination,
-      stop: {
-        type: 'stop',
-        id: req.params.id,
-        name: departure.stop
-      }
-    }))
+    const transformedResult = parsingResult.data.map(
+      (departure: stopTypes.StopDeparture) => ({
+        type: "departure",
+        arrival_time: departure.time,
+        line_id: departure.line,
+        direction_name: departure.destination,
+        stop: {
+          type: "stop",
+          id: req.params.id,
+          name: departure.stop,
+        },
+      })
+    );
 
-    res.json(transformedResult)
+    res.json(transformedResult);
   } else {
-    res.status(500).json(parsingResult)
+    res.status(500).json(parsingResult);
   }
 }
 
@@ -128,17 +132,18 @@ export async function getStopDepartures (req: Request, res: Response) {
   "type": "info"
 }
 */
-export async function getStopInfo (req: Request, res: Response) {
-  const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=info&stop=${req.params.id}`
-  const schema = stopTypes.stopInfoSchema
+export async function getStopInfo(req: Request, res: Response) {
+  const url = `${URLS.zielonagora.mzk.baseUrl}?command=fs&action=info&stop=${req.params.id}`;
+  const schema = stopTypes.stopInfoSchema;
 
-  const parsingResult = await getAndParseJson(url, schema)
+  const json = await getJson(url);
+  const parsingResult = schema.safeParse(json);
 
   if (parsingResult.success) {
-    const transformedResult = { ...parsingResult.data, ...{ type: 'info' } }
+    const transformedResult = { ...parsingResult.data, ...{ type: "info" } };
 
-    res.json(transformedResult)
+    res.json(transformedResult);
   } else {
-    res.status(500).json(parsingResult)
+    res.status(500).json(parsingResult);
   }
 }

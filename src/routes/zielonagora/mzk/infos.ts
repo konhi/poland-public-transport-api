@@ -1,8 +1,8 @@
-import * as infosTypes from '../../../types/zielonagora/mzk/infos'
-import { Request, Response } from 'express'
-import { URLS } from '../../../utils/urls'
-import { getAndParseJson } from '../../../utils/fetching'
-import { z } from 'zod'
+import * as infosTypes from "../../../types/zielonagora/mzk/infos";
+import { Request, Response } from "express";
+import { URLS } from "../../../utils/urls";
+import { getJson } from "../../../utils/fetching";
+import { z } from "zod";
 
 /**
  * @api {get} /v1/zielonagora/mzk/infos getInfos
@@ -30,15 +30,16 @@ import { z } from 'zod'
 
 ]
  */
-export async function getInfos (req: Request, res: Response) {
-  const url = `${URLS.zielonagora.mzk.baseUrl}?command=infos&format=json`
-  const schema = z.array(infosTypes.infoSchema).nonempty()
+export async function getInfos(req: Request, res: Response) {
+  const url = `${URLS.zielonagora.mzk.baseUrl}?command=infos&format=json`;
+  const schema = z.array(infosTypes.infoSchema).nonempty();
 
-  const parsingResult = await getAndParseJson(url, schema)
+  const json = await getJson(url);
+  const parsingResult = schema.safeParse(json);
 
   if (parsingResult.success) {
-    res.json(parsingResult.data)
+    res.json(parsingResult.data);
   } else {
-    res.status(500).json(parsingResult)
+    res.status(500).json(parsingResult);
   }
 }

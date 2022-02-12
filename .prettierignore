@@ -1,0 +1,9 @@
+*.html
+*.css
+dist
+node_modules
+coverage
+.vscode
+.github
+src/public
+README.md
