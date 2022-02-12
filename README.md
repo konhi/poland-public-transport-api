@@ -14,7 +14,7 @@
     <br>
     <a href="https://github.com/konhi/poland-public-transport-api#Contact">💬 Contact Us</a>
     ·
-    <a href="https://github.com/konhi/poland-public-transport-api/issues">🐛 Report Bug</a>
+    <a href="https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.md">🖥 Contributing & Self-hosting</a>
     ·
     <a href="https://github.com/konhi/poland-public-transport-api/issues">✨ Request Feature</a>
   </p>
@@ -50,5 +50,7 @@ Does your project use this API? Feel free to add it there!
 ## License
 
 Distributed under the MIT License. See [`LICENSE.txt`](https://github.com/konhi/poland-public-transport-api/blob/main/LICENSE) for more information.
+
+Check [attributions!](https://github.com/konhi/poland-public-transport-api/blob/main/ATTRIBUTIONS.md)
 
 Illustration by <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
