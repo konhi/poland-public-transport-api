@@ -1,7 +1,7 @@
-import { URLS } from "../../../utils/urls";
-import { getJson } from "../../../utils/fetching";
+import { URLS } from "../../../../utils/urls";
+import { getJson } from "../../../../utils/fetching";
 import { Request, Response } from "express";
-import * as realtimeVehiclesTypes from "../../../types/zielonagora/mzk/vehicles";
+import * as realtimeVehiclesTypes from "../../../../types/zielonagora/mzk/v1/vehicles";
 import { z } from "zod";
 
 export async function getCurrentVehicles(req: Request, res: Response) {

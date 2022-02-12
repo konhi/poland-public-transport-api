@@ -1,7 +1,7 @@
-import * as infosTypes from "../../../types/zielonagora/mzk/infos";
+import * as infosTypes from "../../../../types/zielonagora/mzk/v1/infos";
 import { Request, Response } from "express";
-import { URLS } from "../../../utils/urls";
-import { getJson } from "../../../utils/fetching";
+import { URLS } from "../../../../utils/urls";
+import { getJson } from "../../../../utils/fetching";
 import { z } from "zod";
 
 /**
