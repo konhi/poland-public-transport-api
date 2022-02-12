@@ -12,7 +12,7 @@
     "build-ts": "tsc",
     "build": "npm run build-ts",
     "debug": "npm run build && npm run watch-debug",
-    "lint": "tsc --noEmit && ts-standard --fix --quiet",
+    "lint": "tsc --noEmit && npx prettier --write .",
     "serve-debug": "nodemon --inspect dist/server.js",
     "start": "node --experimental-specifier-resolution=node dist/server.js",
     "test": "jest --forceExit --coverage --verbose --passWithNoTests",
