@@ -7,3 +7,5 @@
 - [Secrus](https://github.com/Secrus): better code architecture and README suggestions
 - [roertbb](https://github.com/roertbb): OpenAPI/Swagger recommendation, cloud services advisory
 - [Wybranowsky](https://github.com/Wybranowsky): inspiration from their Zielona Góra API wrapper
+- [Survi](https://github.com/Survikrowa): code style suggestions
+- [Michał Miszczyszyn](https://github.com/mmiszy): code style suggestions
