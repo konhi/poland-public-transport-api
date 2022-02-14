@@ -6,6 +6,7 @@ import path from "path";
 import routerV1 from "./routes/v1";
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './public/v1/openapi.json';
+import morgan from 'morgan';
 
 // Create Express server
 const app = express();
@@ -16,6 +17,7 @@ app.use(compression());
 app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('combined'))
 
 // Static files
 app.use(express.static(path.join(__dirname, "public")));
