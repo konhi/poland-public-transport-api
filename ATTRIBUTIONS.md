@@ -9,3 +9,4 @@
 - [Wybranowsky](https://github.com/Wybranowsky): inspiration from their Zielona Góra API wrapper
 - [Survi](https://github.com/Survikrowa): code style suggestions
 - [Michał Miszczyszyn](https://github.com/mmiszy): code style suggestions
+- [Morritz](https://github.com/Morritz): helped with avoiding app crashes
