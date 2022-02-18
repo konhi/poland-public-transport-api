@@ -21,11 +21,14 @@
      <h3> <a href="https://poland-public-transport-api.azurewebsites.net"><strong>Explore the docs »</strong></a></h2>
 </div>
 
-
 ## Current Providers
 | Status | Version | City | Source | Docs |
 |:------:|----:|------|------|:---:|
 | ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**](https://poland-public-transport-api.azurewebsites.net/#api-zielonagoramzk) |
+
+## Phases
+### v1
+This phase tries to gather providers. It shouldn't focus on mapping external data into standarized and unified format.
 
 ## Features
 <div align="center">
