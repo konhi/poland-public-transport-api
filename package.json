@@ -40,6 +40,6 @@
   "dependencies": {
     "itty-router": "^2.4.10",
     "itty-router-extras": "^0.4.2",
-    "zod": "^3.11.6"
+    "zod": "^3.13.4"
   }
 }

@@ -1,7 +1,7 @@
 import { ThrowableRouter } from 'itty-router-extras'
 import zielonagoraMzkRouter from './zielonagora/mzk'
 
-const zielonagoraRouter = ThrowableRouter({ base: '/api/zielonagora' })
+const zielonagoraRouter = ThrowableRouter({ base: '/v1/zielonagora' })
 
 zielonagoraRouter.all('/mzk/*', zielonagoraMzkRouter.handle)
 
