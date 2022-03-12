@@ -9,7 +9,7 @@ export async function getWrapperRoute(
   request: Request,
   options: BasicRouteOptions,
 ): Promise<Response> {
-  const data = await getJson(options.url)
+  const data = await getJson(options.url, options.fixEscapeCharacters)
 
   return getParsedResponse(options.schema, data)
 }

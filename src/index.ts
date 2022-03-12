@@ -12,7 +12,6 @@ function handleRequest(request: Request) {
   return router.handle(request)
 }
 
-
 addEventListener('fetch', (event) => {
   event.respondWith(handleRequest(event.request))
 })
