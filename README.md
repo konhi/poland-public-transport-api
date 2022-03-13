@@ -1,39 +1,59 @@
-# ʕ •́؈•̀) `worker-typescript-template`
+<div align="center">
+<a href="https://poland-public-transport-api.azurewebsites.net/">
+    <img src="https://user-images.githubusercontent.com/61631665/152824247-9b81c74d-95c0-492c-a867-0af4341ee46b.png" alt="Logo">
+</a>
+<br>
+ <a href="https://github.com/konhi/poland-public-transport-api/actions/workflows/main_poland-public-transport-api.yml">
+   <img src="https://github.com/konhi/poland-public-transport-api/actions/workflows/main_poland-public-transport-api.yml/badge.svg" alt="Deploy Status">
+</a>
+<h1 align="center">🚌 Poland's Public Transport API</h3>
 
-A batteries included template for kick starting a TypeScript Cloudflare worker project.
+  <p align="center">
+    Stable and simple, community-maintained REST API you can use in your project right away.
+    <br>
+    <br>
+    <a href="https://github.com/konhi/poland-public-transport-api#Contact">💬 Contact Us</a>
+    ·
+    <a href="https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.md">🖥 Contributing & Self-hosting</a>
+    ·
+    <a href="https://github.com/konhi/poland-public-transport-api/issues">✨ Request Feature</a>
+  </p>
+     <h3> <a href="https://poland-public-transport-api.azurewebsites.net"><strong>Explore the docs »</strong></a></h2>
+</div>
 
-## Note: You must use [wrangler](https://developers.cloudflare.com/workers/cli-wrangler/install-update) 1.17 or newer to use this template.
+## Current Providers
+| Status | Version | City | Source | Docs |
+|:------:|----:|------|------|:---:|
+| ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**](https://poland-public-transport-api.azurewebsites.net/#api-zielonagoramzk) |
 
-## 🔋 Getting Started
+## Phases
+### v1
+This phase tries to gather providers. It shouldn't focus on mapping external data into standarized and unified format.
 
-This template is meant to be used with [Wrangler](https://github.com/cloudflare/wrangler). If you are not already familiar with the tool, we recommend that you install the tool and configure it to work with your [Cloudflare account](https://dash.cloudflare.com). Documentation can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler/).
+## Features
+<div align="center">
+<img alt="CORS: fetch data in your cool webapp. Free: no keys and ratelimits, open-source. Fast: max-age and ETag headers. Safe. validates data to check external servers’ updates" src="https://user-images.githubusercontent.com/61631665/152881791-b4bd340a-7d9d-4d2f-beaa-895b69d0d1b3.png"/>
+</div>
 
-To generate using Wrangler, run this command:
+## Used by
+Does your project use this API? Feel free to add it there!
 
-```bash
-wrangler generate my-ts-project https://github.com/cloudflare/worker-typescript-template
-```
+## Contact
 
-### 👩 💻 Developing
+### Maintainers
+- [konhi](https://github.com/konhi) - **Jan Szymański**: [<hello.konhi@gmail.com>](mailto:hello.konhi@gmail.com) · [@konhi_](https://twitter.com/konhi_) · [konhi#1588](https://discord.com) (he/him)
 
-[`src/index.ts`](./src/index.ts) calls the request handler in [`src/handler.ts`](./src/handler.ts), and will return the [request method](https://developer.mozilla.org/en-US/docs/Web/API/Request/method) for the given request.
+## Related
+- https://przyjazdy.pl/gtfs
+- https://github.com/public-transport
+  - https://transport.rest
+  - https://eu.data.public-transport.earth/
+- [Polish National Access Point Datasets](https://dane.gov.pl/pl/dataset/1739,krajowy-punkt-dostepowy-kpd-multimodalne-usugi-informacji-o-podrozach)
 
-### 🧪 Testing
+## License
 
-This template comes with jest tests which simply test that the request handler can handle each request method. `npm test` will run your tests.
+Distributed under the MIT License. See [`LICENSE.txt`](https://github.com/konhi/poland-public-transport-api/blob/main/LICENSE) for more information.
 
-### ✏️ Formatting
+Check [attributions!](https://github.com/konhi/poland-public-transport-api/blob/main/ATTRIBUTIONS.md)
 
-This template uses [`prettier`](https://prettier.io/) to format the project. To invoke, run `npm run format`.
-
-### 👀 Previewing and Publishing
-
-For information on how to preview and publish your worker, please see the [Wrangler docs](https://developers.cloudflare.com/workers/tooling/wrangler/commands/#publish).
-
-## 🤢 Issues
-
-If you run into issues with this specific project, please feel free to file an issue [here](https://github.com/cloudflare/worker-typescript-template/issues). If the problem is with Wrangler, please file an issue [here](https://github.com/cloudflare/wrangler/issues).
-
-## ⚠️ Caveats
-
-The `service-worker-mock` used by the tests is not a perfect representation of the Cloudflare Workers runtime. It is a general approximation. We recommend that you test end to end with `wrangler dev` in addition to a [staging environment](https://developers.cloudflare.com/workers/tooling/wrangler/configuration/environments/) to test things before deploying.
+Illustration by <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
