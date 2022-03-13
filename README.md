@@ -32,6 +32,11 @@ This phase tries to gather providers. It shouldn't focus on mapping external dat
 <img alt="CORS: fetch data in your cool webapp. Free: no keys and ratelimits, open-source. Fast: max-age and ETag headers. Safe. validates data to check external servers’ updates" src="https://user-images.githubusercontent.com/61631665/152881791-b4bd340a-7d9d-4d2f-beaa-895b69d0d1b3.png"/>
 </div>
 
+## Self-hosting
+This project is proudly powered by Cloudflare Workers. You can deploy your own instance for free, 100k requests per day.
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/konhi/poland-public-transport-api)
+
 ## Used by
 Does your project use this API? Feel free to add it there!
 
