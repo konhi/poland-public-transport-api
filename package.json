@@ -4,7 +4,7 @@
   "description": "Cloudflare worker TypeScript template",
   "main": "dist/worker.js",
   "scripts": {
-    "build": "webpack",
+    "build": "npx tsc && node build.js",
     "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "test": "jest --config jestconfig.json --verbose"
@@ -33,11 +33,10 @@
     "service-worker-mock": "^2.0.5",
     "ts-jest": "^27.0.1",
     "ts-loader": "^9.2.2",
-    "typescript": "^4.3.2",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0"
+    "typescript": "^4.3.2"
   },
   "dependencies": {
+    "esbuild": "^0.14.25",
     "itty-router": "^2.4.10",
     "itty-router-extras": "^0.4.2",
     "zod": "^3.13.4"

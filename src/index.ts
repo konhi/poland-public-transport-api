@@ -8,10 +8,7 @@ router
   .all('/zielonagora/*', zielonagoraRouter.handle)
   .all('/*', () => missing())
 
-function handleRequest(request: Request) {
-  return router.handle(request)
-}
 
-addEventListener('fetch', (event) => {
-  event.respondWith(handleRequest(event.request))
-})
+export default {
+  fetch: router.handle
+}

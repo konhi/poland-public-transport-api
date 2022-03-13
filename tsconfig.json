@@ -8,6 +8,7 @@
     "strict": true,
     "preserveConstEnums": true,
     "moduleResolution": "node",
+    "skipLibCheck": true, 
     "sourceMap": true,
     "esModuleInterop": true,
     "types": [
