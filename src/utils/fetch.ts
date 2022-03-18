@@ -6,6 +6,11 @@ export async function getJson(
   try {
     const response = await fetch(url, {
       headers: DEFAULT_REQUEST_HEADERS,
+      // Custom Cloudflare Fetch Headers, allows to cache request to not flood the external server
+      cf: {
+        cacheEverything: true,
+        cacheTtl: 60,
+      }
     })
 
     if (fixEscapeCharacters) {
