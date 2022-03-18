@@ -14,5 +14,5 @@ export const DEFAULT_REQUEST_HEADERS = {
 export const DEFAULT_RESPONSE_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'access-control-expose-headers': '*',
-  'Cache-Control': 'max-age=60',
+  'Cache-Control': 'max-age=10',
 }
