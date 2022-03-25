@@ -12,9 +12,9 @@
       <b>Simple</b>, <b>open</b> and <b>community</b>-maintained REST API you can use in your project <b>limitlessly.</b>
     <br>
     <br>
-    <a href="https://github.com/konhi/poland-public-transport-api#Contact">💬 Contact Us</a>
+    <a href="https://github.com/konhi/poland-public-transport-api#Contact">💬 Let's talk</a>
     ·
-    <a href="https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.md">🖥 Contributing & Self-hosting</a>
+    <a href="https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.md">🖥 Contribute & Use</a>
     ·
     <a href="https://github.com/konhi/poland-public-transport-api/issues">✨ Request Feature</a>
   </p>
@@ -42,15 +42,15 @@ This project is **proudly powered by Cloudflare Workers**. You can deploy your o
 You can also use these **public instances**:
 - https://poland-public-transport.konhi.workers.dev/
 
-## Used by
+## 🌌 Used by
 Does your project use this API? Feel free to **add it there!**
 
 - [Przystanek MZK Zielona Góra](https://github.com/Wybranowsky/przystanek-mzk)
 
-## Contact
+## 💬 Let's talk!
 - [konhi](https://github.com/konhi) - **Jan Szymański**: [<hello.konhi@gmail.com>](mailto:hello.konhi@gmail.com) · [@konhi_](https://twitter.com/konhi_) · [konhi#1588](https://discord.com) (he/him)
 
-## Related
+## 🕶 Related
 - https://przyjazdy.pl/gtfs
 - https://github.com/public-transport
   - https://transport.rest
