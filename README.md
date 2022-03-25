@@ -6,7 +6,7 @@
 
 
 <br>
-<h1 align="center">🚌 Poland's Public Transport API</h3>
+<h1 align="center">🚌 Poland's Public Transport API</h1>
 
   <p align="center">
       <b>Simple</b>, <b>open</b> and <b>community</b>-maintained REST API you can use in your project <b>limitlessly.</b>
