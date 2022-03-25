@@ -14,7 +14,7 @@
     <br>
     <a href="https://github.com/konhi/poland-public-transport-api#Contact">💬 Let's talk</a>
     ·
-    <a href="https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.md">🖥 Contribute & Use</a>
+    <a href="https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.MD">🖥 Contribute & Use</a>
     ·
     <a href="https://github.com/konhi/poland-public-transport-api/issues">✨ Request Feature</a>
   </p>
