@@ -42,6 +42,14 @@ This project is **proudly powered by Cloudflare Workers**. You can deploy your o
 You can also use these **public instances**:
 - https://poland-public-transport.konhi.workers.dev/
 
+## 🔌 Routes
+### zielonagora
+- [/v1/zielonagora/mzk/stops](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops)
+- [/v1/zielonagora/mzk/vehicles](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/vehicles)
+- [/v1/zielonagora/mzk/infos](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops)
+- [/v1/zielonagora/mzk/stops/:stop_id/departures](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops/75/departures)
+- [/v1/zielonagora/mzk/stops/:stop_id/info](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops/75/info)
+
 ## 🌌 Used by
 Does your project use this API? Feel free to **add it there!**
 
