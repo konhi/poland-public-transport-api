@@ -26,3 +26,11 @@ In case you'd need any help, **feel free to always contact maintainers!** Google
 | Library name | Description |
 |--------------|-------------|
 | [Zod](https://github.com/colinhacks/zod) | We use that library to make sure that data we get from providers is going to look like we want to. We're going to migrate from it in future, because it's really heavy for that case. | 
+
+## Phases
+### v1
+This phase tries to gather providers. It shouldn't focus on mapping external data into standarized and unified format.
+
+### v2 [planned]
+Standarized and unified format of data.
+
