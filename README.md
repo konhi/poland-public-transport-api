@@ -40,7 +40,7 @@ This project is **proudly powered by Cloudflare Workers**. You can deploy your o
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/konhi/poland-public-transport-api)
 
 You can also use these **public instances**:
-- https://poland-public-transport.konhi.workers.dev/
+- [https://poland-public-transport.konhi.workers.dev/](https://poland-public-transport.konhi.workers.dev/)
 
 ## 🔌 Routes
 ### zielonagora
