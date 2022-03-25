@@ -12,7 +12,7 @@
       <b>Simple</b>, <b>open</b> and <b>community</b>-maintained REST API you can use in your project <b>limitlessly.</b>
     <br>
     <br>
-    <a href="https://github.com/konhi/poland-public-transport-api#Contact">💬 Let's talk</a>
+    <a href="#-lets-talk">💬 Let's talk</a>
     ·
     <a href="https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.MD">🖥 Contribute & Use</a>
     ·
@@ -26,7 +26,7 @@
 |--------|---------|------|--------|
 | ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) |
 
-Not found what you're looking for?  [**Contribe new providers »**](https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.md)
+Not found what you're looking for?  [**Contribe new providers »**](https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.MD)
 
 ## ✨ Features
 - **🔌 CORS:** fetch data in your cool webapp
