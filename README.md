@@ -22,9 +22,10 @@
 </div>
 
 ## 🌐 Sources
-| Status | Version | City | Source | Docs |
-|:------:|----:|------|------|:---:|
-| ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) | [**Check docs »**](https://poland-public-transport-api.azurewebsites.net/#api-zielonagoramzk) |
+
+| Status | Version | City | Source |
+|--------|---------|------|--------|
+| ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) |
 
 Not found what you're looking for?  [**Contribe new providers »**](https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.md)
 
