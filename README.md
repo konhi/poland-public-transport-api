@@ -26,7 +26,7 @@
 |--------|---------|------|--------|
 | ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) |
 
-Not found what you're looking for?  [**Contribe new providers »**](https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.MD)
+Not found what you're looking for?  [**Contribute new providers »**](https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.MD)
 
 ## ✨ Features
 - **🔌 CORS:** fetch data in your cool webapp
