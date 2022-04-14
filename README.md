@@ -63,12 +63,13 @@ Does your project use this API? Feel free to **add it there!**
 - [konhi](https://github.com/konhi) - **Jan Szymański**: [<hello.konhi@gmail.com>](mailto:hello.konhi@gmail.com) · [@konhi_](https://twitter.com/konhi_) · [konhi#1588](https://discord.com) (he/him)
 
 ## 🕶 Related
-- [https://przyjazdy.pl/gtfs](https://przyjazdy.pl/gtfs)
-- [https://github.com/public-transport](https://github.com/public-transport)
-  - [https://transport.rest](https://transport.rest)
-  - [https://eu.data.public-transport.earth/](https://eu.data.public-transport.earth/)
+- [Przyjazdy.pl GTFS Feeds](https://przyjazdy.pl/gtfs)
+- [MKuran GTFS Feeds](https://mkuran.pl/gtfs/)
+- [github.com/public-transport](https://github.com/public-transport)
+  - [transport.rest](https://transport.rest)
+  - [eu.data.public-transport.earth/](https://eu.data.public-transport.earth/)
 - [Polish National Access Point Datasets](https://dane.gov.pl/pl/dataset/1739,krajowy-punkt-dostepowy-kpd-multimodalne-usugi-informacji-o-podrozach)
-- https://transitfeeds.com/
+- [Transitfeeds - An extensive archive of public transit data](https://transitfeeds.com/)
 - [Commercial alternative](https://jakdojade.pl/public/pages/api/rest_xml.html)
 
 ## 📜 License
