@@ -1,7 +1,7 @@
 {
-  "name": "worker-typescript-template",
+  "name": "poland-public-transport-api",
   "version": "1.0.0",
-  "description": "Cloudflare worker TypeScript template",
+  "description": "🚌 • community maintained APIs for Poland's public transport",
   "main": "dist/worker.js",
   "scripts": {
     "build": "npx tsc && node build.js",
@@ -9,8 +9,8 @@
     "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "test": "jest --config jestconfig.json --verbose"
   },
-  "author": "author",
-  "license": "MIT OR Apache-2.0",
+  "author": "konhi",
+  "license": "",
   "eslintConfig": {
     "root": true,
     "extends": [
