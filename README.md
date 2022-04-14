@@ -64,6 +64,7 @@ Does your project use this API? Feel free to **add it there!**
   - [https://transport.rest](https://transport.rest)
   - [https://eu.data.public-transport.earth/](https://eu.data.public-transport.earth/)
 - [Polish National Access Point Datasets](https://dane.gov.pl/pl/dataset/1739,krajowy-punkt-dostepowy-kpd-multimodalne-usugi-informacji-o-podrozach)
+- [Commercial alternative](https://jakdojade.pl/public/pages/api/rest_xml.html)
 
 ## 📜 License
 
