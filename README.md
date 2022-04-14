@@ -22,13 +22,13 @@
 
 ## 🌐 Sources
 
-| Status | Version | City | Source |
+| Status | Version | City | Notes |
 |--------|---------|------|--------|
-| ✅ | v1 | Zielona Góra | [mzk.zgora.pl](https://mzk.zgora.pl) |
-| 🔁 | - | Wrocław | [Wroclive-server](https://github.com/LiarPrincess/Wroclive-server) or TBD |
-| 🔁 | - | Bieława | [TBD](https://github.com/konhi/poland-public-transport-api/issues/9) |
-| 🔁 | - | Gorzów Wielkopolski | [TBD](https://github.com/konhi/poland-public-transport-api/issues/7) |
-| 🔁 | - | Kalisz | [TBD](https://github.com/konhi/poland-public-transport-api/issues/8) |
+| ✅ | v1 | Zielona Góra | Scrapes directly from [mzk.zgora.pl](https://mzk.zgora.pl) |
+| 🔁 | - | Wrocław | [Issue](https://github.com/LiarPrincess/Wroclive-server/issues/8) and [other one](https://github.com/konhi/poland-public-transport-api/issues/12) |
+| 🔁 | - | Bieława | [Issue](https://github.com/konhi/poland-public-transport-api/issues/9) |
+| 🔁 | - | Gorzów Wielkopolski | [Issue](https://github.com/konhi/poland-public-transport-api/issues/7) |
+| 🔁 | - | Kalisz | [Issue](https://github.com/konhi/poland-public-transport-api/issues/8) |
 
 Not found what you're looking for?  [**Contribute new providers »**](https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.MD)
 
