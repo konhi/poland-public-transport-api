@@ -25,9 +25,9 @@
 | Status | Version | City | Notes |
 |--------|---------|------|--------|
 | ✅ | v1 | Zielona Góra | Scrapes directly from [mzk.zgora.pl](https://mzk.zgora.pl) |
+| ✅ | v1 | Gorzów Wielkopolski | Scrapes directly from [mzk-gorzow.com.pl](https://mzk-gorzow.com.pl/) |
 | 🔁 | - | Wrocław | [Issue](https://github.com/LiarPrincess/Wroclive-server/issues/8) and [other one](https://github.com/konhi/poland-public-transport-api/issues/12) |
 | 🔁 | - | Bieława | [Issue](https://github.com/konhi/poland-public-transport-api/issues/9) |
-| 🔁 | - | Gorzów Wielkopolski | [Issue](https://github.com/konhi/poland-public-transport-api/issues/7) |
 | 🔁 | - | Kalisz | [Issue](https://github.com/konhi/poland-public-transport-api/issues/8) |
 
 Not found what you're looking for?  [**Contribute new providers »**](https://github.com/konhi/poland-public-transport-api/blob/main/CONTRIBUTING.MD)
@@ -47,12 +47,18 @@ You can also use these **public instances**:
 - [https://poland-public-transport.konhi.workers.dev/](https://poland-public-transport.konhi.workers.dev/)
 
 ## 🔌 Routes
-### zielonagora
+### Zielona Góra
 - [/v1/zielonagora/mzk/stops](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops)
 - [/v1/zielonagora/mzk/vehicles](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/vehicles)
 - [/v1/zielonagora/mzk/infos](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops)
 - [/v1/zielonagora/mzk/stops/:stop_id/departures](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops/75/departures)
 - [/v1/zielonagora/mzk/stops/:stop_id/info](https://poland-public-transport.konhi.workers.dev/v1/zielonagora/mzk/stops/75/info)
+### Gorzów Wielkopolski
+- [/v1/gorzow/mzk/stops](https://poland-public-transport.konhi.workers.dev/v1/gorzow/mzk/stops)
+- [/v1/gorzow/mzk/vehicles](https://poland-public-transport.konhi.workers.dev/v1/gorzow/mzk/vehicles)
+- [/v1/gorzow/mzk/infos](https://poland-public-transport.konhi.workers.dev/v1/gorzow/mzk/infos)
+- [/v1/gorzow/mzk/stops/:stop_id/departures](https://poland-public-transport.konhi.workers.dev/v1/gorzow/mzk/stops/000000001074/departures)
+- [/v1/gorzow/mzk/stops/:stop_id/info](https://poland-public-transport.konhi.workers.dev/v1/gorzow/mzk/stops/000000001074/info)
 
 ## 🌌 Used by
 Does your project use this API? Feel free to **add it there!**

@@ -4,6 +4,11 @@ export const URLS = {
       baseUrl: 'https://traveller.mzk.zgora.pl/vm/main',
     },
   },
+  gorzow: {
+    mzk: {
+      baseUrl: 'https://komunikacja.um.gorzow.pl/vm/main',
+    },
+  },
 }
 
 export const DEFAULT_REQUEST_HEADERS = {
