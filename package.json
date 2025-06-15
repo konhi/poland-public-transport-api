@@ -1,44 +1,20 @@
 {
-  "name": "poland-public-transport-api",
-  "version": "1.0.0",
-  "description": "🚌 • community maintained APIs for Poland's public transport",
-  "main": "dist/worker.js",
+  "name": "x",
   "scripts": {
-    "build": "npx tsc && node build.js",
-    "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
-    "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
-    "test": "jest --config jestconfig.json --verbose"
-  },
-  "author": "konhi",
-  "license": "",
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "typescript",
-      "prettier"
-    ]
-  },
-  "devDependencies": {
-    "@cloudflare/workers-types": "^3.0.0",
-    "@types/itty-router-extras": "^0.4.0",
-    "@types/jest": "^26.0.23",
-    "@types/service-worker-mock": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
-    "eslint": "^7.21.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-config-typescript": "^3.0.0",
-    "jest": "^27.0.1",
-    "prettier": "^2.3.0",
-    "service-worker-mock": "^2.0.5",
-    "ts-jest": "^27.0.1",
-    "ts-loader": "^9.2.2",
-    "typescript": "^4.3.2"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
-    "esbuild": "^0.14.25",
-    "itty-router": "^2.4.10",
-    "itty-router-extras": "^0.4.2",
-    "zod": "^3.13.4"
+    "@hono/zod-validator": "^0.7.0",
+    "fast-xml-parser": "^5.2.5",
+    "hono": "^4.7.11",
+    "hono-openapi": "^0.4.8",
+    "wretch": "^2.11.0",
+    "zod": "^3.25.64",
+    "zod-openapi": "^4.2.4"
+  },
+  "devDependencies": {
+    "wrangler": "^4.4.0"
   }
 }

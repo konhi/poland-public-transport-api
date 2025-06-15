@@ -1,0 +1,36 @@
+<Schedules time="19:57" xmlns="">
+  <Stop name="1 Maja" id="6" ds="">
+    <Day type="DS" desc="ŚWIĄTECZNE">
+      <R nr="14   " dir="ZAWADZKIEGO &quot;ZOŚKI&quot;" vt="A" vuw="NE">
+        <S th="" tm="1 min" t="1 min" m="2" s="115" id="1235" nb="344" veh="T" uw="" kuw="    " />
+      </R>
+      <R nr="44   " dir="DWORZEC GŁÓWNY" vt="A" vuw="NE">
+        <S th="" tm="9 min" t="9 min" m="2" s="595" id="2020" nb="346" veh="T" uw="" kuw="A   " />
+      </R>
+      <R nr="14   " dir="ZAWADZKIEGO &quot;ZOŚKI&quot;" vt="A" vuw="NE">
+        <S th="20" tm="29" t="20:29" m="3" s="1915" id="691" nb="310" veh="T" uw="" kuw="    " />
+      </R>
+      <R nr="44   " dir="DWORZEC GŁÓWNY" vt="" vuw="">
+        <S th="20" tm="31" t="20:31" m="3" s="2035" id="2223" nb="0" veh="N" uw="" kuw="A   " />
+      </R>
+      <R nr="14" dir="ZAWADZKIEGO &quot;ZOŚKI&quot;" vt="A" vuw="">
+        <S th="20" tm="59" t="20:59" m="3" s="3710" id="1280" nb="0" veh="N" uw="" kuw="    " />
+      </R>
+      <R nr="44   " dir="DWORZEC GŁÓWNY" vt="A" vuw="NE">
+        <S th="21" tm="06" t="21:06" m="3" s="4135" id="1935" nb="353" veh="T" uw="" kuw="A   " />
+      </R>
+      <R nr="14   " dir="ZAWADZKIEGO &quot;ZOŚKI&quot;" vt="" vuw="">
+        <S th="21" tm="29" t="21:29" m="3" s="5515" id="421" nb="0" veh="N" uw="" kuw="    " />
+      </R>
+      <R nr="44   " dir="DWORZEC GŁÓWNY" vt="" vuw="">
+        <S th="21" tm="31" t="21:31" m="3" s="5635" id="2288" nb="0" veh="N" uw="" kuw="A   " />
+      </R>
+      <R nr="27   " dir="DWORZEC GŁÓWNY" vt="" vuw="">
+        <S th="21" tm="41" t="21:41" m="3" s="6235" id="4556" nb="0" veh="N" uw="" kuw="    " />
+      </R>
+      <R nr="14" dir="ZAWADZKIEGO &quot;ZOŚKI&quot;" vt="A" vuw="">
+        <S th="21" tm="59" t="21:59" m="3" s="7310" id="1308" nb="0" veh="N" uw="" kuw="    " />
+      </R>
+    </Day>
+  </Stop>
+</Schedules>

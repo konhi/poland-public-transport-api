@@ -1,12 +1,7 @@
 export const URLS = {
   zielonagora: {
     mzk: {
-      baseUrl: 'https://traveller.mzk.zgora.pl/vm/main',
-    },
-  },
-  gorzow: {
-    mzk: {
-      baseUrl: 'https://komunikacja.um.gorzow.pl/vm/main',
+      baseUrl: 'https://rj.mzk.zgora.pl/Routes/',
     },
   },
 }
@@ -14,6 +9,13 @@ export const URLS = {
 export const DEFAULT_REQUEST_HEADERS = {
   'User-Agent':
     'Non-commercial Poland Public Transport API; Contact at: https://github.com/konhi/poland-public-transport-api',
+}
+
+export const DEFAULT_CLOUDFLARE_FETCH_HEADERS = {
+  cf: {
+    cacheEverything: true,
+    cacheTtl: 60,
+  }
 }
 
 export const DEFAULT_RESPONSE_HEADERS = {

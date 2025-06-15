@@ -1,31 +1,25 @@
-import { DEFAULT_REQUEST_HEADERS } from './constants'
-export async function getJson(
-  url: string,
-  fixEscapeCharacters = false,
-): Promise<unknown> {
-  try {
-    const response = await fetch(url, {
-      headers: DEFAULT_REQUEST_HEADERS,
-      // Custom Cloudflare Fetch Headers, allows to cache request to not flood the external server
-      cf: {
-        cacheEverything: true,
-        cacheTtl: 60,
-      }
-    })
+import { EXTERNAL_ENDPOINTS } from "./external-endpoints";
+import wretch from "wretch";
 
-    if (fixEscapeCharacters) {
-      // some providers incorrectly use \ in text (example: "destination": "Zjazd\Zajezdnia Chemiczna"), use this option when it happens
-      const text = (await response.text()).replaceAll(/\\/g, '/')
-      const json = await JSON.parse(text)
+export const fetcher = async ({
+	endpoint,
+}: { endpoint: keyof typeof EXTERNAL_ENDPOINTS }) => {
+	const text = await wretch(`
+		${EXTERNAL_ENDPOINTS[endpoint].BASE_URL}
+		${EXTERNAL_ENDPOINTS[endpoint].ENDPOINT}`,
+		{
+			headers: {
+				"User-Agent":
+					"Non-commercial Poland Public Transport API; Contact at: https://github.com/konhi/poland-public-transport-api",
+				cf: {
+					cacheEverything: true,
+					cacheTtl: EXTERNAL_ENDPOINTS[endpoint].REFRESH_INTERVAL_SECONDS,
+				},
+			},
+		},
+	).get().text();
 
-      return json
-    } else {
-      const json = response.json()
+	const json = await EXTERNAL_ENDPOINTS[endpoint].xmlParser.parse(text);
 
-      return json
-    }
-  } catch (error) {
-    console.error(error)
-    return
-  }
-}
+	return EXTERNAL_ENDPOINTS[endpoint].schema.parse(json);
+};

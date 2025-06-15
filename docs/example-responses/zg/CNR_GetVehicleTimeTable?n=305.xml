@@ -1,0 +1,23 @@
+<Schedules id="2657" nr="1" type="7" o="JĘDRZYCHÓW" xmlns="">
+  <Stop lp="1" id="1050" name="CHYNÓW (przesiadka 1 i 22)" th="" tm="11 min" s="687" m="2" />
+  <Stop lp="2" id="54" name="Chynów" th="" tm="12 min" s="747" m="2" />
+  <Stop lp="3" id="55" name="Bukowa" th="" tm="13 min" s="807" m="2" />
+  <Stop lp="4" id="56" name="Jastrzębia" th="" tm="14 min" s="867" m="2" />
+  <Stop lp="5" id="57" name="Gorzowska" th="" tm="15 min" s="927" m="2" />
+  <Stop lp="6" id="58" name="Strumykowa" th="" tm="16 min" s="987" m="2" />
+  <Stop lp="7" id="59" name="Dolina Zielona" th="" tm="18 min" s="1107" m="2" />
+  <Stop lp="8" id="27" name="Staszica" th="19" tm="29" s="1227" m="3" />
+  <Stop lp="9" id="28" name="Dworzec Główny" th="19" tm="31" s="1347" m="3" />
+  <Stop lp="10" id="60" name="Chrobrego" th="19" tm="33" s="1467" m="3" />
+  <Stop lp="11" id="61" name="Urząd Miasta" th="19" tm="34" s="1527" m="3" />
+  <Stop lp="12" id="62" name="Palmiarnia" th="19" tm="36" s="1647" m="3" />
+  <Stop lp="13" id="63" name="Sienkiewicza" th="19" tm="38" s="1767" m="3" />
+  <Stop lp="14" id="64" name="Kożuchowska PSP" th="19" tm="40" s="1887" m="3" />
+  <Stop lp="15" id="65" name="Os. Robotnicze" th="19" tm="41" s="1947" m="3" />
+  <Stop lp="16" id="66" name="Przyrodnicza" th="19" tm="42" s="2007" m="3" />
+  <Stop lp="17" id="67" name="Jałowcowa" th="19" tm="43" s="2067" m="3" />
+  <Stop lp="18" id="68" name="Zawiszy Czarnego" th="19" tm="44" s="2127" m="3" />
+  <Stop lp="19" id="69" name="Kąpielowa" th="19" tm="46" s="2247" m="3" />
+  <Stop lp="20" id="70" name="Domeyki" th="19" tm="48" s="2367" m="3" />
+  <Stop lp="21" id="810" name="Jędrzychów" th="19" tm="49" s="2427" m="3" />
+</Schedules>
