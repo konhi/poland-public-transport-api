@@ -10,16 +10,16 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.7.0
-        version: 0.7.0(hono@4.7.11)(zod@3.25.64)
+        version: 0.7.0(hono@4.10.2)(zod@3.25.64)
       fast-xml-parser:
         specifier: ^5.2.5
         version: 5.2.5
       hono:
-        specifier: ^4.7.11
-        version: 4.7.11
+        specifier: ^4.10.2
+        version: 4.10.2
       hono-openapi:
         specifier: ^0.4.8
-        version: 0.4.8(@hono/zod-validator@0.7.0(hono@4.7.11)(zod@3.25.64))(hono@4.7.11)(openapi-types@12.1.3)(zod-openapi@4.2.4(zod@3.25.64))(zod@3.25.64)
+        version: 0.4.8(@hono/zod-validator@0.7.0(hono@4.10.2)(zod@3.25.64))(hono@4.10.2)(openapi-types@12.1.3)(zod-openapi@4.2.4(zod@3.25.64))(zod@3.25.64)
       wretch:
         specifier: ^2.11.0
         version: 2.11.0
@@ -496,8 +496,8 @@ packages:
       zod-openapi:
         optional: true
 
-  hono@4.7.11:
-    resolution: {integrity: sha512-rv0JMwC0KALbbmwJDEnxvQCeJh+xbS3KEWW5PC9cMJ08Ur9xgatI0HmtgYZfOdOSOeYsp5LO2cOhdI8cLEbDEQ==}
+  hono@4.10.2:
+    resolution: {integrity: sha512-p6fyzl+mQo6uhESLxbF5WlBOAJMDh36PljwlKtP5V1v09NxlqGru3ShK+4wKhSuhuYf8qxMmrivHOa/M7q0sMg==}
     engines: {node: '>=16.9.0'}
 
   is-arrayish@0.3.2:
@@ -747,9 +747,9 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/zod-validator@0.7.0(hono@4.7.11)(zod@3.25.64)':
+  '@hono/zod-validator@0.7.0(hono@4.10.2)(zod@3.25.64)':
     dependencies:
-      hono: 4.7.11
+      hono: 4.10.2
       zod: 3.25.64
 
   '@img/sharp-darwin-arm64@0.33.5':
@@ -924,17 +924,17 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  hono-openapi@0.4.8(@hono/zod-validator@0.7.0(hono@4.7.11)(zod@3.25.64))(hono@4.7.11)(openapi-types@12.1.3)(zod-openapi@4.2.4(zod@3.25.64))(zod@3.25.64):
+  hono-openapi@0.4.8(@hono/zod-validator@0.7.0(hono@4.10.2)(zod@3.25.64))(hono@4.10.2)(openapi-types@12.1.3)(zod-openapi@4.2.4(zod@3.25.64))(zod@3.25.64):
     dependencies:
       json-schema-walker: 2.0.0
       openapi-types: 12.1.3
     optionalDependencies:
-      '@hono/zod-validator': 0.7.0(hono@4.7.11)(zod@3.25.64)
-      hono: 4.7.11
+      '@hono/zod-validator': 0.7.0(hono@4.10.2)(zod@3.25.64)
+      hono: 4.10.2
       zod: 3.25.64
       zod-openapi: 4.2.4(zod@3.25.64)
 
-  hono@4.7.11: {}
+  hono@4.10.2: {}
 
   is-arrayish@0.3.2: {}
 
