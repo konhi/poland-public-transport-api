@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@hono/zod-validator": "^0.7.0",
-    "fast-xml-parser": "^5.2.5",
+    "fast-xml-parser": "^5.3.6",
     "hono": "^4.7.11",
     "hono-openapi": "^0.4.8",
     "wretch": "^2.11.0",
